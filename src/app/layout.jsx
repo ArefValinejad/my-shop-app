@@ -1,14 +1,22 @@
-import Header from "./components/Header";
+"use client";
 
-const layout = ({ children }) => {
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import "./globals.css";
+import { CartProvider } from "./context/CartContext";
+
+const RootLayout = ({ children }) => {
   return (
-    <html lang="en">
-      <body>
-        <Header />
-        <div>{children}</div>
+    <html lang="fa" dir="rtl">
+      <body className="min-h-screen flex flex-col">
+        <CartProvider>
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );
 };
 
-export default layout;
+export default RootLayout;
