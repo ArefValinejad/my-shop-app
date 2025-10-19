@@ -1,4 +1,10 @@
+"use client";
+
+import { useCart } from "../context/CartContext";
+
 const OfferBox = () => {
+  const { addToCart } = useCart();
+
   const products = [
     {
       id: 1,
@@ -37,7 +43,7 @@ const OfferBox = () => {
           return (
             <div
               key={product.id}
-              className="bg-white rounded-xl shadow hover:shadow-md transition overflow-hidden cursor-pointer group border"
+              className="bg-white rounded-xl shadow hover:shadow-md transition overflow-hidden cursor-pointer group border flex flex-col"
             >
               <div className="relative">
                 <img
@@ -49,7 +55,7 @@ const OfferBox = () => {
                   ٪{discountPercent} تخفیف
                 </span>
               </div>
-              <div className="p-3 text-right">
+              <div className="p-3 text-right flex flex-col flex-grow">
                 <h3 className="font-bold text-gray-800 mb-1">
                   {product.title}
                 </h3>
@@ -61,6 +67,13 @@ const OfferBox = () => {
                     {product.newPrice.toLocaleString()} تومان
                   </span>
                 </div>
+                {/* دکمه افزودن به سبد خرید */}
+                <button
+                  className="mt-3 w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+                  onClick={() => addToCart(product)}
+                >
+                  افزودن به سبد خرید 🛒
+                </button>
               </div>
             </div>
           );

@@ -1,11 +1,15 @@
 "use client";
 
 import products from "../../../../Mock/data";
+import { useCart } from "../../context/CartContext";
+import { use } from "react";
 
 export default function CategoryPage({ params }) {
-  const category = decodeURIComponent(params.categoryName);
+  const unwrappedParams = use(params); 
+  const category = decodeURIComponent(unwrappedParams.categoryName);
 
-  // نرمال‌سازی برای مقایسه دقیق‌تر
+  const { addToCart } = useCart();
+
   const normalize = (str) => str?.toString().trim().toLowerCase();
 
   const filtered = products.filter((p) =>
@@ -21,7 +25,10 @@ export default function CategoryPage({ params }) {
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {filtered.map((product) => (
-            <div key={product.id} className="p-2 shadow rounded bg-white">
+            <div
+              key={product.id}
+              className="p-2 shadow rounded bg-white flex flex-col"
+            >
               <img
                 src={product.image}
                 alt={product.name}
@@ -29,6 +36,14 @@ export default function CategoryPage({ params }) {
               />
               <h3 className="mt-2 font-medium text-center">{product.name}</h3>
               <p className="text-center text-gray-600">{product.price}</p>
+
+              {/* دکمه افزودن به سبد خرید */}
+              <button
+                className="mt-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+                onClick={() => addToCart(product)}
+              >
+                افزودن به سبد خرید 🛒
+              </button>
             </div>
           ))}
         </div>

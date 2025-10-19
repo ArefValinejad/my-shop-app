@@ -4,7 +4,6 @@ const Footer = () => {
   return (
     <footer className="bg-gray-100 text-gray-800 w-full mt-10">
       
-      {/* این div فقط برای پس‌زمینه و تمام عرض صفحه هست */}
       <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
         
         {/* اطلاعات فروشگاه */}
