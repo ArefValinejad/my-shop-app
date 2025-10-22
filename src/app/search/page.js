@@ -1,10 +1,9 @@
 "use client";
-
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import products from "../../../Mock/data";
 
-export default function SearchPage() {
+export default function SearchResults() {
   const searchParams = useSearchParams();
   const query = decodeURIComponent(searchParams.get("q") || "");
 
@@ -18,7 +17,6 @@ export default function SearchPage() {
   return (
     <div className="p-4">
       <h1 className="text-xl font-bold mb-4">نتایج جستجو برای: {query}</h1>
-
       {filtered.length === 0 ? (
         <p className="text-center text-red-500">محصولی یافت نشد.</p>
       ) : (
