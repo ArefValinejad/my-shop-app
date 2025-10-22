@@ -1,4 +1,4 @@
-import Category from "./components/CategoryBoes";
+import Category from "./components/CategoryBoxes";
 import OfferBox from "./components/OfferBox";
 import Banner from "./components/Banner";
 
