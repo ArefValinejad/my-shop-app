@@ -7,7 +7,7 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
-  // localStorage 
+  // localStorage
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart-items"));
     if (storedCart) {
@@ -15,12 +15,10 @@ export const CartProvider = ({ children }) => {
     }
   }, []);
 
-  
   useEffect(() => {
     localStorage.setItem("cart-items", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  
   const addToCart = (product) => {
     setCartItems((prev) => {
       const exist = prev.find((item) => item.id === product.id);

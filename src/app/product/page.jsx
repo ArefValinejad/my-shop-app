@@ -1,8 +1,8 @@
 "use client";
 
-import products from "../../../../Mock/data";
+import products from "../../../Mock/data";
 import { useParams } from "next/navigation";
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../context/CartContextt";
 
 const ProductByIdPage = () => {
   const params = useParams();

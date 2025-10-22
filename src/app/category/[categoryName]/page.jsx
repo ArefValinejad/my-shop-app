@@ -5,7 +5,7 @@ import { useCart } from "../../context/CartContext";
 import { use } from "react";
 
 export default function CategoryPage({ params }) {
-  const unwrappedParams = use(params); 
+  const unwrappedParams = use(params);
   const category = decodeURIComponent(unwrappedParams.categoryName);
 
   const { addToCart } = useCart();
