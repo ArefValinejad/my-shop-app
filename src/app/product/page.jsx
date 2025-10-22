@@ -2,7 +2,7 @@
 
 import products from "../../../Mock/data";
 import { useParams } from "next/navigation";
-import { useCart } from "../context/CartContextt";
+import { useCart } from "../context/CartContext";
 
 const ProductByIdPage = () => {
   const params = useParams();
