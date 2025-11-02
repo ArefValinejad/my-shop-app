@@ -7,7 +7,7 @@ import { useCart } from "../context/CartContext";
 const ProductByIdPage = () => {
   const params = useParams();
   const { id } = params;
-  const { setCartCount } = useCart();
+  const { addToCart } = useCart();
 
   const findedProduct = products.find((product) => product.id === +id);
 
@@ -16,7 +16,7 @@ const ProductByIdPage = () => {
   }
 
   const handleAddToCart = () => {
-    setCartCount((prev) => prev + 1);
+    addToCart(findedProduct);
   };
 
   return (
